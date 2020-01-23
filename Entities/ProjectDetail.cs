@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Leo.Resume.Entities
+namespace Leo.ResumeProfile.Entities
 {
     public class ProjectDetail
     {
@@ -14,8 +14,8 @@ namespace Leo.Resume.Entities
         public string Title { get; set; }
         public string Keyword { get; set; }
         public string Location { get; set; }
-        public Date Start { get; set; }
-        public Date End { get; set; }
+        public DateTimeOffset Start { get; set; }
+        public DateTimeOffset End { get; set; }
         public string Client { get; set; }
         public string OperatingSystem { get; set; }
         public string Tools { get; set; }

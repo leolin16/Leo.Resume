@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Leo.Resume.Entities
+namespace Leo.ResumeProfile.Entities
 {
     public class Skill
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Leo.Resume.Entities
+namespace Leo.ResumeProfile.Entities
 {
     public class ExperienceSummary
     {

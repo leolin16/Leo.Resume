@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Leo.Resume.Entities
+namespace Leo.ResumeProfile.Entities
 {
     public class Experience
     {
@@ -11,8 +11,8 @@ namespace Leo.Resume.Entities
 
 
         public ExperienceType Category { get; set; }
-        public Date Start { get; set; }
-        public Date End { get; set; }
+        public DateTimeOffset Start { get; set; }
+        public DateTimeOffset End { get; set; }
         public double DurationInYear {
             get { /* do your sum here */ 
                 double range;  

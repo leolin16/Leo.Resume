@@ -1,7 +1,7 @@
 
 using System;
 
-namespace Leo.Resume.Entities
+namespace Leo.ResumeProfile.Entities
 {
     public class Certificate
     {
@@ -9,7 +9,7 @@ namespace Leo.Resume.Entities
 
 
         public string Category { get; set; }
-        public Date ObtainedDate { get; set; }
+        public DateTimeOffset ObtainedDate { get; set; }
         public string CertOrganizationNameChn { get; set; }
         public string CertOrganizationNameJpn { get; set; }
         public string CertOrganizationNameEng { get; set; }
