@@ -1,14 +1,30 @@
 # resume api & ui
 
+## history & versions
+
+1. migrate from dotnet 2.2 to 3.0
+2. [migrate from dotnet 3.0 to 3.1 - 2020/1/23](https://docs.microsoft.com/en-us/aspnet/core/migration/30-to-31?view=aspnetcore-3.1&tabs=visual-studio)
+    - for a blazor project: 
+    ```c#
+        // old - component html helper
+        @(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered, new { IncrementAmount = 10 }))
+        // new - component tag helper
+        <component type="typeof(Counter)" render-mode="ServerPrerendered" param-IncrementAmount="10" />
+    ```
+    - [breaking changes for eg: SameSite](https://docs.microsoft.com/en-us/dotnet/core/compatibility/3.0-3.1)
+
+    [another upgrade manual by Chinese](https://www.cnblogs.com/weihanli/p/migrate-to-netcore3_1-from-netcore3_0.html)
+
 ## start up the project by using dotnet new template
 
-> dotnet new webapi -n/-o ${some project name}
+1. > dotnet new webapi -n/-o ${some project name}
+2. > docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1
 
 ## installing packages
 
-1. > dotnet add package Microsoft.EntityFrameworkCore --version 3.0.0
-2. > dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0
-3. > dotnet add package Microsoft.EntityFrameworkCore.Tools --version 3.0.0
+1. > dotnet add package Microsoft.EntityFrameworkCore --version 3.1.1
+2. > dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.1
+3. > dotnet add package Microsoft.EntityFrameworkCore.Tools --version 3.1.1
 
 ## project settings
 
@@ -61,9 +77,14 @@ no change
     `docker run -d -p 1433:1433 -e sa_password=P@ssw0rd -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer`  
     can be accessed via **localhost:1433**
 * for linux container in mac/linux/windows 10  
-    `docker run --name mssqldb -d -p 1433:1433 -e 'SA_PASSWORD=P@ssw0rd' -e 'ACCEPT_EULA=Y' mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04` (" in powershell and ' for mac/linux, SA_PASSWORD should be in upper case)
+    `docker run --name mssqldb -d -p 1433:1433 -e 'SA_PASSWORD=P@ssw0rd' -e 'ACCEPT_EULA=Y' mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04` (" in powershell and ' for mac/linux, SA_PASSWORD should be in upper case, `2019-latest`)
  
 2. setup db connection string correctly: `Server=localhost;Database=resumeDb;User=sa;Password=P@ssw0rd;Trusted_Connection=False;MultipleActiveResultSets=true;`
 3. > dotnet tool install --global dotnet-ef
 4. > dotnet ef migrations add initial
 5. > dotnet ef database update
+
+## shared library setup
+
+1. > dotnet new classlib -f netstandard2.1
+2. 
